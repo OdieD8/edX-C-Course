@@ -1,0 +1,6 @@
+C:\Users\Odilon\Desktop\edX C# Course\Projects\ModuleOneAssignment\ModuleOneAssignment\bin\Debug\ModuleOneAssignment.exe.config
+C:\Users\Odilon\Desktop\edX C# Course\Projects\ModuleOneAssignment\ModuleOneAssignment\bin\Debug\ModuleOneAssignment.exe
+C:\Users\Odilon\Desktop\edX C# Course\Projects\ModuleOneAssignment\ModuleOneAssignment\bin\Debug\ModuleOneAssignment.pdb
+C:\Users\Odilon\Desktop\edX C# Course\Projects\ModuleOneAssignment\ModuleOneAssignment\obj\Debug\ModuleOneAssignment.csprojResolveAssemblyReference.cache
+C:\Users\Odilon\Desktop\edX C# Course\Projects\ModuleOneAssignment\ModuleOneAssignment\obj\Debug\ModuleOneAssignment.exe
+C:\Users\Odilon\Desktop\edX C# Course\Projects\ModuleOneAssignment\ModuleOneAssignment\obj\Debug\ModuleOneAssignment.pdb

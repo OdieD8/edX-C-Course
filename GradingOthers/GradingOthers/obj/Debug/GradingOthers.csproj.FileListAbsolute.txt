@@ -1,0 +1,6 @@
+C:\Users\Odilon\Desktop\edX C# Course\Projects\GradingOthers\GradingOthers\bin\Debug\GradingOthers.exe.config
+C:\Users\Odilon\Desktop\edX C# Course\Projects\GradingOthers\GradingOthers\bin\Debug\GradingOthers.exe
+C:\Users\Odilon\Desktop\edX C# Course\Projects\GradingOthers\GradingOthers\bin\Debug\GradingOthers.pdb
+C:\Users\Odilon\Desktop\edX C# Course\Projects\GradingOthers\GradingOthers\obj\Debug\GradingOthers.exe
+C:\Users\Odilon\Desktop\edX C# Course\Projects\GradingOthers\GradingOthers\obj\Debug\GradingOthers.pdb
+C:\Users\Odilon\Desktop\edX C# Course\Projects\GradingOthers\GradingOthers\obj\Debug\GradingOthers.csprojResolveAssemblyReference.cache
