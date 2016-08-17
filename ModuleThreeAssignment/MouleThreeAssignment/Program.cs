@@ -10,12 +10,61 @@ namespace ModuleOneAssignment
     {
         static void Main(string[] args)
         {
-            GetStudentInformation();
+            try
+            {
+                Console.WriteLine("Do you wannt to enter student information (Y/N)?");
+                string student = Console.ReadLine();
+                Console.WriteLine();
 
-            GetTeacherInformation();
+                if (student.ToUpper() == "Y" || student.ToUpper() == "YES")
+                {
+                    GetStudentInformation();
+                }
 
-            GetCourseInformation();
+                Console.WriteLine("Do you want to enter teacher information (Y/N)?");
+                string teacher = Console.ReadLine();
+                Console.WriteLine();
 
+                if (teacher.ToUpper() == "Y" || teacher.ToUpper() == "YES")
+                {
+                    GetTeacherInformation();
+                }
+
+                Console.WriteLine("Do you want to enter course information (Y/N)?");
+                string course = Console.ReadLine();
+                Console.WriteLine();
+
+                if (course.ToUpper() == "Y" || course.ToUpper() == "YES")
+                {
+                    GetCourseInformation();
+                }
+
+                Console.WriteLine("Do you want to enter UProgram information (Y/N)?");
+                string program = Console.ReadLine();
+                Console.WriteLine();
+
+                if (program.ToUpper() == "Y" || program.ToUpper() == "YES")
+                {
+                    GetUprogramformation();
+                }
+
+                Console.WriteLine("Do you want to enter degree information (Y/N)?");
+                string degree = Console.ReadLine();
+                Console.WriteLine();
+
+                if (degree.ToUpper() == "Y" || degree.ToUpper() == "YES")
+                {
+                    GetDegreeformation();
+                }
+
+                //no longer calling this method because catch below will throw error for invalid dates
+                //validateBirthday();
+            }
+
+            catch (Exception e)
+            {
+                Console.WriteLine("The following error occurred: " + e);
+            }
         }
 
         static void GetStudentInformation()
@@ -70,6 +119,7 @@ namespace ModuleOneAssignment
 
             Console.WriteLine();
             Console.WriteLine("Press Any Key to Output Student Information Captured");
+            Console.WriteLine();
             Console.ReadKey();
 
             PrintStudentDetails(studentFirstName, studentLastName, studentBD, studentAddressLine1, studentAddressLine2, studentCity, studentState, studentZip, studentCountry);
@@ -80,7 +130,7 @@ namespace ModuleOneAssignment
             Console.WriteLine("{0} {1} was born on {2} and lives on {3} {4}" + System.Environment.NewLine + "{5}, {6} {7}" + System.Environment.NewLine + "{8}", first, last, birthday.ToString("MM/dd/yyyy"), address1, suiteApt, city, state, zipcode, country);
 
             Console.WriteLine();
-            Console.WriteLine("Press any key to go to the teacher section");
+            Console.WriteLine("Press any key to proceed");
             Console.ReadKey();
         }
 
@@ -110,7 +160,8 @@ namespace ModuleOneAssignment
             string teacherCourses = Console.ReadLine();
 
             Console.WriteLine();
-            Console.WriteLine("Press Any Key to Output Teacher Information Captured");
+            Console.WriteLine("Press Any Key to Output Teacher Information");
+            Console.WriteLine();
             Console.ReadKey();
 
             PrintTeacherDetails(teacherFirstName, teacherLastName, teacherBD, teacherCourses);
@@ -121,7 +172,7 @@ namespace ModuleOneAssignment
             Console.WriteLine("{0} {1} was born on {2} and teaches {3}", first, last, birthday.ToString("MM/dd/yyyy"), courses);
 
             Console.WriteLine();
-            Console.WriteLine("Press any key to go to the course section");
+            Console.WriteLine("Press any key to proceed");
             Console.ReadKey();
         }
 
@@ -146,7 +197,8 @@ namespace ModuleOneAssignment
             DateTime courseStart = DateTime.Parse(courseDate);
 
             Console.WriteLine();
-            Console.WriteLine("Press Any Key to Output Teacher Information Captured");
+            Console.WriteLine("Press Any Key to Output Course Information");
+            Console.WriteLine();
             Console.ReadKey();
 
             PrintCourseInformation(courseName, credit, courseStart);
@@ -155,6 +207,88 @@ namespace ModuleOneAssignment
         static void PrintCourseInformation(string course, int credit, DateTime start)
         {
             Console.WriteLine("{0} is worth {1} credit(s) and starts on {2}", course, credit, start.ToString("MM/dd/yyyy"));
+            Console.WriteLine();
+            Console.WriteLine("Press any key to proceed");
+            Console.ReadKey();
+        }
+
+        static void GetUprogramformation()
+        {
+            Console.WriteLine("Enter UProgram information... ");
+            Console.WriteLine();
+
+            Console.WriteLine("Program Name");
+            string progName = Console.ReadLine();
+
+            Console.WriteLine();
+
+            Console.WriteLine("Program duration in months");
+            int length = Convert.ToInt16(Console.ReadLine());
+
+            Console.WriteLine();
+
+            Console.WriteLine("Prerequisites (Enter for none)");
+            string preReq = Console.ReadLine();
+
+            string preReqRequired = "requires the completion of: ";
+
+            if(preReq == "")
+            {
+                preReqRequired = "no prerequisites are required";
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Press Any Key to Output UProgram Information");
+            Console.WriteLine();
+            Console.ReadKey();
+
+            PrintUprogramInformation(progName, length, preReqRequired, preReq);
+        }
+
+        static void PrintUprogramInformation(string name, int length, string preReqWording, string preRequisites)
+        {
+            Console.WriteLine("{0} lasts {1} month(s) and {2} {3}", name, length, preReqWording, preRequisites);
+
+            Console.WriteLine();
+            Console.WriteLine("Press any key to proceed");
+            Console.ReadKey();
+        }
+
+        static void GetDegreeformation()
+        {
+            Console.WriteLine("Enter Degree information... ");
+            Console.WriteLine();
+
+            Console.WriteLine("Degree Name");
+            string degreeName = Console.ReadLine();
+
+            Console.WriteLine();
+
+            Console.WriteLine("Degree type (BA, BS, MS, etc.)");
+            string type = Console.ReadLine();
+
+            Console.WriteLine();
+
+            Console.WriteLine("Number of credits required to graduate");
+            int gradCredits = Convert.ToInt16(Console.ReadLine());
+
+            Console.WriteLine();
+            Console.WriteLine("Press Any Key to Output Degree Information");
+            Console.WriteLine();
+            Console.ReadKey();
+
+            PrintDegreeInformation(degreeName, type, gradCredits);
+        }
+
+        static void PrintDegreeInformation(string name, string type, int credits)
+        {
+            Console.WriteLine("The {0} of {1} degree requires {2} credits to graduate", type, name, credits);
+
+        }
+
+        static void validateBirthday()
+        {
+            throw new NotImplementedException();
         }
     }
 }
