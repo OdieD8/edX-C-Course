@@ -84,6 +84,8 @@ namespace ModuleFourAssignment
             studentArr[0].country = "US";
             studentArr[0].birthDate = studentBD;
 
+            studentArr[1] = new Student("John", "Doe", "03/03/88", "122 Anywhere Street", "Apt. 6", "New York", "NY", "US", 10001);
+
             Console.WriteLine("Student First Name: " + studentArr[0].firstName);
             Console.WriteLine("Student Last Name: " + studentArr[0].lastName);
             Console.WriteLine("Student Address: " + studentArr[0].addressLine1);
