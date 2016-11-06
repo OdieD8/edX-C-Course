@@ -93,6 +93,61 @@ namespace ModuleFourAssignment
             Console.WriteLine("Student Zip: " + studentArr[0].zip);
             Console.WriteLine("Student Country: " + studentArr[0].country);
             Console.WriteLine("Student Birthday: " + studentArr[0].birthDate.ToString("dd/MM/yyyy"));
+
+            for (int i = 0; i < studentArr.Length; i++)
+            {
+                Console.WriteLine("Please enter student {0}'s first name", i + 1);
+                studentArr[i].firstName = Console.ReadLine();
+                Console.WriteLine();
+
+                Console.WriteLine("Please enter student {0}'s last name", i + 1);
+                studentArr[i].lastName = Console.ReadLine();
+                Console.WriteLine();
+
+                Console.WriteLine("Please enter student {0}'s birthday", i + 1);
+                string bd = Console.ReadLine();
+                DateTime birthday = DateTime.Parse(bd);
+                studentArr[i].birthDate = birthday;
+                Console.WriteLine();
+
+                Console.WriteLine("Please enter student {0}'s address", i + 1);
+                studentArr[i].addressLine1 = Console.ReadLine();
+                Console.WriteLine();
+
+                Console.WriteLine("Please enter student {0}'s address line 2", i + 1);
+                studentArr[i].addressLine2 = Console.ReadLine();
+                Console.WriteLine();
+
+                Console.WriteLine("Please enter student {0}'s city", i + 1);
+                studentArr[i].city = Console.ReadLine();
+                Console.WriteLine();
+
+                Console.WriteLine("Please enter student {0}'s state", i + 1);
+                studentArr[i].state = Console.ReadLine();
+                Console.WriteLine();
+
+                Console.WriteLine("Please enter student {0}'s country", i + 1);
+                studentArr[i].country = Console.ReadLine();
+                Console.WriteLine();
+
+                Console.WriteLine("Please enter student {0}'s zip", i + 1);
+                studentArr[i].zip = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine();
+            }
+
+            for (int x = 0; x < studentArr.Length; x++)
+            {
+                Console.WriteLine("Student {0}'s first name is '{1}'", x + 1, studentArr[x].firstName);
+                Console.WriteLine("Student {0}'s last name is '{1}'", x + 1, studentArr[x].lastName);
+                Console.WriteLine("Student {0}'s birthday is '{1}'", x + 1, studentArr[x].birthDate.ToString("dd/MM/yyyy"));
+                Console.WriteLine("Student {0}'s address is '{1}'", x + 1, studentArr[x].addressLine1);
+                Console.WriteLine("Student {0}'s address line 2 is '{1}'", x + 1, studentArr[x].addressLine2);
+                Console.WriteLine("Student {0}'s city is '{1}'", x + 1, studentArr[x].city);
+                Console.WriteLine("Student {0}'s state is '{1}'", x + 1, studentArr[x].state);
+                Console.WriteLine("Student {0}'s country is '{1}'", x + 1, studentArr[x].country);
+                Console.WriteLine("Student {0}'s zip code is '{1}'", x + 1, studentArr[x].zip);
+                Console.WriteLine();
+            }
         }
     }
 }
