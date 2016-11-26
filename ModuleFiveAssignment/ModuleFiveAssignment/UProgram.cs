@@ -8,7 +8,8 @@ namespace ModuleFiveAssignment
 {
     class UProgram
     {
-        private string name, preReqs, degree;
+        private string name, preReqs;
+        private Degree degree = new Degree();
         private int months;
 
         public string Name
@@ -23,7 +24,7 @@ namespace ModuleFiveAssignment
             set { preReqs = value; }
         }
 
-        public string Degree
+        public Degree Degree
         {
             get { return degree; }
             set { degree = value; }

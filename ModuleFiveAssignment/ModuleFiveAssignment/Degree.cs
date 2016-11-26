@@ -8,7 +8,8 @@ namespace ModuleFiveAssignment
 {
     class Degree
     {
-        private string degreeName, type, course;
+        private string degreeName, type;
+        private Course course = new Course();
         private int gradCredits;
 
         public string DegreeName
@@ -23,7 +24,7 @@ namespace ModuleFiveAssignment
             set { type = value; }
         }
 
-        public string Course
+        public Course Course
         {
             get { return course; }
             set { course = value; }

@@ -11,6 +11,7 @@ namespace ModuleFiveAssignment
         private string firstName, lastName, addressLine1, addressLine2, city, state, country;
         private DateTime birthDate;
         private int zip;
+        public static int count = 0;
 
         public string FirstName
         {
@@ -64,6 +65,11 @@ namespace ModuleFiveAssignment
         {
             get { return zip; }
             set { zip = value; }
+        }
+
+        public Student()
+        {
+            count = ++count;
         }
     }
 }
