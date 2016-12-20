@@ -5,15 +5,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ModuleSixAssignment
+namespace ModuleSevenAssignment
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            Student studentOne = new Student();
-            Student studentTwo = new Student();
-            Student studentThree = new Student();
+            Student studentOne = new Student()
+            {
+                FirstName = "John",
+                LastName = "Smith",
+            };
+            Student studentTwo = new Student()
+            {
+                FirstName = "Joseph",
+                LastName = "Doe"
+            };
+            Student studentThree = new Student()
+            {
+                FirstName = "Eric",
+                LastName = "Williams"
+            };
             Teacher teacherOne = new Teacher();
 
             studentOne.Grades.Push(55);
@@ -34,22 +46,20 @@ namespace ModuleSixAssignment
             studentThree.Grades.Push(77);
             studentThree.Grades.Push(99);
 
-            ArrayList students = new ArrayList()
-            {
-                studentOne,
-                studentTwo,
-                studentThree
-            };
-
             Teacher[] teachers = new Teacher[3];
             teachers[0] = teacherOne;
 
             Course course = new Course
             {
                 Name = "Programming with C#",
-                Students = students,
                 Teachers = teachers
             };
+
+            course.Students.Add(studentOne);
+            course.Students.Add(studentTwo);
+            course.Students.Add(studentThree);
+            
+            course.ListStudents();
 
             Degree bachelor = new Degree
             {
@@ -65,7 +75,8 @@ namespace ModuleSixAssignment
 
             Console.WriteLine($"The {uProgram.Name} program contains the {bachelor.DegreeName} degree");
             Console.WriteLine(Environment.NewLine + $"The {bachelor.DegreeName} degree contains the course {course.Name}");
-            Console.WriteLine(Environment.NewLine + $"the {course.Name} course contains {Student.count} student(s)");
+            Console.WriteLine(Environment.NewLine + $"The {course.Name} course contains {Student.count} student(s)");
+            Console.WriteLine();
         }
     }
 }

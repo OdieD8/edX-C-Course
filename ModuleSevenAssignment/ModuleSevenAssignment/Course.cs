@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ModuleSixAssignment
+namespace ModuleSevenAssignment
 {
     class Course
     {
@@ -18,6 +18,15 @@ namespace ModuleSixAssignment
         {
             get { return students; }
             set { students = value; }
+        }
+
+        public void ListStudents()
+        {
+            foreach (object student in students)
+            {
+                Console.WriteLine($"Student's Name: {((Student)student).FirstName} {((Student)student).LastName}");
+                Console.WriteLine();
+            }
         }
 
         public Teacher[] Teachers
