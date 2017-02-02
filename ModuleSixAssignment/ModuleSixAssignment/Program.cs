@@ -45,6 +45,14 @@ namespace ModuleSixAssignment
             Console.WriteLine($"The {uProgram.Name} program contains the {bachelor.DegreeName} degree");
             Console.WriteLine(Environment.NewLine + $"The {bachelor.DegreeName} degree contains the course {course.Name}");
             Console.WriteLine(Environment.NewLine + $"the {course.Name} course contains {Student.count} student(s)");
+
+            Person person = new Person();
+            Student personStudent = new Student();
+            person.Equals(personStudent);
+
+            string firstName = person.FirstName;
+            string lastName = person.LastName;
+            DateTime x = person.BirthDate;
         }
     }
 }
