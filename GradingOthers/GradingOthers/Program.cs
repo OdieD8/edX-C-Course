@@ -1,125 +1,291 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication1
+namespace ModuleSevenAssignment
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            //read
-            Console.WriteLine("Please enter student information");
-            StudentInformation student = GetStudentInformation();
-
-            //write
-            Console.WriteLine("Student info gathered.");
-            PrintStudentDetails(student);
-            Console.WriteLine("####");
-
-            //read
-            Console.WriteLine("Please enter teacher information");
-            TeacherInformation teacher = GetTeacherInformation();
-
-            //write
-            Console.WriteLine("Teacher info gathered.");
-            PrintTeacherDetails(teacher);
-            Console.WriteLine("####");
-
-            //wait for Espace
-            Console.ReadKey();
-        }
-
-        static StudentInformation GetStudentInformation()
-        {
-            StudentInformation student = new StudentInformation();
-            Console.Write("First Name: ");
-            student.FirstName = Console.ReadLine();
-            Console.Write("Last Name: ");
-            student.LastName = Console.ReadLine();
-            Console.Write("Birthdate: ");
-            student.Birthdate = readDateTime();
-            return student;
-        }
-
-        static DateTime readDateTime()
-        {
-            try
+            Student studentOne = new Student()
             {
-                return DateTime.Parse(Console.ReadLine());
-            }
-            catch (System.FormatException ex)
+                FirstName = "John",
+                LastName = "Smith",
+            };
+            Student studentTwo = new Student()
             {
-                Console.WriteLine("Wrong Format! Please enter correct date.");
-                return readDateTime();
-            }
-            catch (Exception ex)
+                FirstName = "Joseph",
+                LastName = "Doe"
+            };
+            Student studentThree = new Student()
             {
-                Console.WriteLine("Date not entered correctly! Please enter correct date.");
-                return readDateTime();
+                FirstName = "Eric",
+                LastName = "Williams"
+            };
+            Teacher teacherOne = new Teacher();
+
+            studentOne.Grades.Push(55);
+            studentOne.Grades.Push(65);
+            studentOne.Grades.Push(95);
+            studentOne.Grades.Push(30);
+            studentOne.Grades.Push(99);
+
+            studentTwo.Grades.Push(85);
+            studentTwo.Grades.Push(88);
+            studentTwo.Grades.Push(72);
+            studentTwo.Grades.Push(95);
+            studentTwo.Grades.Push(100);
+
+            studentThree.Grades.Push(90);
+            studentThree.Grades.Push(82);
+            studentThree.Grades.Push(66);
+            studentThree.Grades.Push(77);
+            studentThree.Grades.Push(99);
+
+            Teacher[] teachers = new Teacher[3];
+            teachers[0] = teacherOne;
+
+            Course course = new Course
+            {
+                Name = "Programming with C#",
+                Teachers = teachers
+            };
+
+            course.Students.Add(studentOne);
+            course.Students.Add(studentTwo);
+            course.Students.Add(studentThree);
+
+            course.ListStudents();
+
+            Degree bachelor = new Degree
+            {
+                DegreeName = "Bachelor of Science",
+                Course = course
+            };
+
+            UProgram uProgram = new UProgram
+            {
+                Name = "Information Technology",
+                Degree = bachelor
+            };
+
+            Console.WriteLine($"The {uProgram.Name} program contains the {bachelor.DegreeName} degree");
+            Console.WriteLine(Environment.NewLine + $"The {bachelor.DegreeName} degree contains the course {course.Name}");
+            Console.WriteLine(Environment.NewLine + $"The {course.Name} course contains {Student.count} student(s)");
+            Console.WriteLine();
+        }
+    }
+
+    class Course
+    {
+        private ArrayList students = new ArrayList();
+        private Teacher[] teachers = new Teacher[3];
+        private string name, start;
+        private int credit;
+
+        public ArrayList Students
+        {
+            get { return students; }
+            set { students = value; }
+        }
+
+        public void ListStudents()
+        {
+            foreach (object student in students)
+            {
+                Console.WriteLine($"Student's Name: {((Student)student).FirstName} {((Student)student).LastName}");
+                Console.WriteLine();
             }
         }
 
-        static void PrintStudentDetails(StudentInformation student)
+        public Teacher[] Teachers
         {
-            Console.WriteLine("First Name: {0}\r\nLast Name: {1}\r\nBirthdate: {2}",
-            student.FirstName, student.LastName, student.Birthdate);
+            get { return teachers; }
+            set { teachers = value; }
         }
 
-        static TeacherInformation GetTeacherInformation()
+        public string Name
         {
-            TeacherInformation teacher = new TeacherInformation();
-            Console.Write("Address Line 1: ");
-            teacher.AddressLine1 = Console.ReadLine();
-            Console.Write("Address Line 2: ");
-            teacher.AddressLine2 = Console.ReadLine();
-            Console.Write("City: ");
-            teacher.City = Console.ReadLine();
-            return teacher;
+            get { return name; }
+            set { name = value; }
         }
 
-        static void PrintTeacherDetails(TeacherInformation teacher)
+        public string Start
         {
-            Console.WriteLine("Address Line 1: {0}\r\nAddress Line 2: {1}\r\nCity: {2}",
-            teacher.AddressLine1, teacher.AddressLine2, teacher.City);
+            get { return start; }
+            set { start = value; }
+        }
+
+        public int Credit
+        {
+            get { return credit; }
+            set { credit = value; }
         }
     }
 
-    class StudentInformation
+    class Student : Person
     {
-        public string FirstName;
-        public string LastName;
-        public DateTime Birthdate;
-        public string AddressLine1;
-        public string AddressLine2;
-        public string City;
-        public string State_Province;
-        public string Zip_Postal;
-        public string Country;
+        private string addressLine1, addressLine2, city, state, country;
+        private int zip;
+        public static int count = 0;
+        public Stack Grades = new Stack();
+
+        public Student()
+        {
+            count = ++count;
+        }
+
+        public Student(string firstName, string lastName, DateTime birthDay)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            BirthDate = birthDay;
+        }
+
+        public string AddressLine1
+        {
+            get { return addressLine1; }
+            set { addressLine1 = value; }
+        }
+
+        public string AddressLine2
+        {
+            get { return addressLine2; }
+            set { addressLine2 = value; }
+        }
+
+        public string City
+        {
+            get { return city; }
+            set { city = value; }
+        }
+
+        public string State
+        {
+            get { return state; }
+            set { state = value; }
+        }
+
+        public string Country
+        {
+            get { return country; }
+            set { country = value; }
+        }
+
+        public int Zip
+        {
+            get { return zip; }
+            set { zip = value; }
+        }
     }
 
-    class TeacherInformation : StudentInformation { }
-
-    class UProgramInformation
+    class Person
     {
-        string ProgramName;
-        string DepartmentHead;
-        string[] Degrees;
+        private string firstName, lastName;
+        private DateTime birthDate;
+
+        public string FirstName
+        {
+            get { return firstName; }
+            set { firstName = value; }
+        }
+
+        public string LastName
+        {
+            get { return lastName; }
+            set { lastName = value; }
+        }
+
+        public DateTime BirthDate
+        {
+            get { return birthDate; }
+            set { birthDate = value; }
+        }
     }
 
-    class DegreeInformation
+    class Degree
     {
-        string DegreeName;
-        Boolean CreditsRequired;
+        private string degreeName, type;
+        private Course course = new Course();
+        private int gradCredits;
+
+        public string DegreeName
+        {
+            get { return degreeName; }
+            set { degreeName = value; }
+        }
+
+        public string Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
+
+        public Course Course
+        {
+            get { return course; }
+            set { course = value; }
+        }
+
+        public int GradCredits
+        {
+            get { return gradCredits; }
+            set { gradCredits = value; }
+        }
     }
 
-    class CourseInformation
+    class Teacher : Person
     {
-        string CourseName;
-        string Credits;
-        int DurationInWeeks;
-        string Teacher;
+        private string courses;
+
+        public Teacher() { }
+
+        public Teacher(string firstName, string lastName, DateTime birthDay)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            BirthDate = birthDay;
+        }
+
+        public string Course
+        {
+            get { return courses; }
+            set { courses = value; }
+        }
+    }
+
+    class UProgram
+    {
+        private string name, preReqs;
+        private Degree degree = new Degree();
+        private int months;
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public string PreReqs
+        {
+            get { return preReqs; }
+            set { preReqs = value; }
+        }
+
+        public Degree Degree
+        {
+            get { return degree; }
+            set { degree = value; }
+        }
+
+        public int Months
+        {
+            get { return months; }
+            set { months = value; }
+        }
     }
 }
