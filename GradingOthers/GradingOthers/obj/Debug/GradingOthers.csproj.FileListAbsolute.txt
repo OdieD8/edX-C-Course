@@ -12,3 +12,6 @@ C:\Odie\school\edX-C-Course\GradingOthers\GradingOthers\bin\Debug\GradingOthers.
 C:\School\edX C# Course\Projects\GradingOthers\GradingOthers\bin\Debug\GradingOthers.exe.config
 C:\School\edX C# Course\Projects\GradingOthers\GradingOthers\obj\Debug\GradingOthers.exe
 C:\School\edX C# Course\Projects\GradingOthers\GradingOthers\obj\Debug\GradingOthers.pdb
+D:\school\edX C# Course\GradingOthers\GradingOthers\bin\Debug\GradingOthers.exe.config
+D:\school\edX C# Course\GradingOthers\GradingOthers\obj\Debug\GradingOthers.exe
+D:\school\edX C# Course\GradingOthers\GradingOthers\obj\Debug\GradingOthers.pdb
